@@ -492,7 +492,7 @@ static bool findChordRests(BasicDrawObj const* const o, Score* score, const int 
       qDebug("findChordRests o %p nNotes %d score %p track %d tick %d cr1 %p cr2 %p", o, o->nNotes, score, track, tick, cr1, cr2);
 
       if (!(cr1 && cr2)) {
-            qDebug("first or second anchor for BasicDrawObj not found (tick %d type %hhu track %d first %p second %p)",
+            qDebug("first or second anchor for BasicDrawObj not found (tick %d type %d track %d first %p second %p)",
                    tick, o->type, track, cr1, cr2);
             return false;
             }
@@ -870,8 +870,8 @@ static int readCapVoice(Score* score, CapVoice* cvoice, int staffIdx, int tick, 
                         if (st == BarLineType::NORMAL)
                               break;
 
-                        if (pm && (st == BarLineType::DOUBLE || st == BarLineType::END || st == BarLineType::BROKEN))
-                              pm->setEndBarLineType(st, false, true);
+//TODO                        if (pm && (st == BarLineType::DOUBLE || st == BarLineType::END || st == BarLineType::BROKEN))
+//                              pm->setEndBarLineType(st, false, true);
 
                         if (st == BarLineType::START_REPEAT || st == BarLineType::END_START_REPEAT) {
                               Measure* nm = 0; // the next measure (the one started by this barline)
